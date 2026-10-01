@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PeerX - Peer Tutor Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <!-- Background VFX -->
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+        <div class="grid"></div>
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>PX</span>
+            PeerX
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="find-tutors.html">Find Tutors</a>
+            <a href="#how">How It Works</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="openAuth('login')">
+                Login
+            </button>
+
+            <button class="signup-btn" onclick="openAuth('signup')">
+                Get Started
+            </button>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✦ LEARN • CONNECT • GROW
+            </div>
+
+            <h1>
+                Learn From
+                <span>Your Peers.</span>
+            </h1>
+
+            <p>
+                Find talented students who can help you master
+                subjects, skills and technologies — or become
+                the tutor others are looking for.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" onclick="scrollToTutors()">
+                    Find a Tutor →
+                </button>
+
+                <button class="secondary-btn" onclick="openAuth('signup')">
+                    Become a Tutor
+                </button>
+
+            </div>
+
+            <div class="stats">
+
+                <div>
+                    <strong>500+</strong>
+                    <small>Students</small>
+                </div>
+
+                <div>
+                    <strong>120+</strong>
+                    <small>Tutors</small>
+                </div>
+
+                <div>
+                    <strong>25+</strong>
+                    <small>Subjects</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO CARD -->
+
+        <div class="hero-card">
+
+            <div class="floating-card card1">
+                <span>⭐</span>
+                <div>
+                    <b>4.9 Rating</b>
+                    <small>Top Tutor</small>
+                </div>
+            </div>
+
+            <div class="main-profile">
+
+                <div class="profile-glow"></div>
+
+                <div class="avatar">
+                    👨‍💻
+                </div>
+
+                <h3>Alex Morgan</h3>
+
+                <p>Computer Science Tutor</p>
+
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Web Dev</span>
+                </div>
+
+                <button>
+                    View Profile
+                </button>
+
+            </div>
+
+            <div class="floating-card card2">
+
+                <span>⚡</span>
+
+                <div>
+                    <b>Quick Match</b>
+                    <small>3 tutors nearby</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUBJECTS -->
+
+    <section class="subjects">
+
+        <div class="section-title">
+
+            <span>EXPLORE</span>
+
+            <h2>What do you want to learn?</h2>
+
+        </div>
+
+        <div class="subject-grid">
+
+            <div class="subject-card">
+                <div>💻</div>
+                <h3>Coding</h3>
+                <p>Web, Python & Programming</p>
+            </div>
+
+            <div class="subject-card">
+                <div>📐</div>
+                <h3>Mathematics</h3>
+                <p>School & College Maths</p>
+            </div>
+
+            <div class="subject-card">
+                <div>🌎</div>
+                <h3>English</h3>
+                <p>Speaking & Communication</p>
+            </div>
+
+            <div class="subject-card">
+                <div>🎨</div>
+                <h3>Design</h3>
+                <p>Graphic & UI Design</p>
+            </div>
+
+            <div class="subject-card">
+                <div>🔬</div>
+                <h3>Science</h3>
+                <p>Physics, Chemistry & Biology</p>
+            </div>
+
+            <div class="subject-card">
+                <div>📊</div>
+                <h3>Business</h3>
+                <p>Marketing & Management</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TUTORS -->
+
+    <section class="tutors-section" id="tutors">
+
+        <div class="section-title">
+
+            <span>FIND YOUR MATCH</span>
+
+            <h2>Popular Peer Tutors</h2>
+
+            <p>
+                Connect with students who know what you're trying to learn.
+            </p>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search subject, skill or tutor..."
+            >
+
+            <button onclick="searchTutors()">
+                🔍 Search
+            </button>
+
+        </div>
+
+
+        <div id="tutorContainer" class="tutor-grid">
+
+            <div class="loading">
+                Loading tutors...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="how" id="how">
+
+        <div class="section-title">
+
+            <span>SIMPLE PROCESS</span>
+
+            <h2>How PeerX Works</h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>Find</h3>
+
+                <p>
+                    Search for a tutor based on subject,
+                    skill or class.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>Connect</h3>
+
+                <p>
+                    View profiles and send a learning request.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>Learn</h3>
+
+                <p>
+                    Connect with your peer and start learning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="about">
+
+        <div>
+
+            <span>SHARE YOUR KNOWLEDGE</span>
+
+            <h2>
+                You know something.
+                <br>
+                Someone wants to learn it.
+            </h2>
+
+            <p>
+                Become a peer tutor and help other students
+                grow while strengthening your own skills.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="openAuth('signup')"
+            >
+                Become a Tutor →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+            <span>PX</span>
+            PeerX
+        </div>
+
+        <p>
+            Learn from peers. Grow together.
+        </p>
+
+        <p>
+            © 2026 PeerX
+        </p>
+
+    </footer>
+
+
+    <!-- AUTH MODAL -->
+
+    <div id="authModal" class="modal">
+
+        <div class="auth-box">
+
+            <button class="close" onclick="closeAuth()">
+                ×
+            </button>
+
+            <div class="auth-logo">
+                PX
+            </div>
+
+            <h2 id="authTitle">
+                Welcome Back
+            </h2>
+
+            <p id="authSubtitle">
+                Login to continue learning.
+            </p>
+
+
+            <div id="nameField" class="input-group hidden">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your name"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="••••••••"
+                >
+
+            </div>
+
+
+            <div id="roleField" class="input-group hidden">
+
+                <label>I want to</label>
+
+                <select id="role">
+
+                    <option value="student">
+                        Learn as Student
+                    </option>
+
+                    <option value="tutor">
+                        Teach as Tutor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                id="authButton"
+                class="auth-submit"
+                onclick="handleAuth()"
+            >
+                Login
+            </button>
+
+
+            <p class="switch-auth">
+
+                <span id="switchText">
+                    Don't have an account?
+                </span>
+
+                <button onclick="switchAuth()">
+                    <span id="switchButton">
+                        Sign Up
+                    </span>
+                </button>
+
+            </p>
+
+            <p id="authMessage"></p>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+    <script src="logout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+const SUPABASE_URL =
+    "https://zxhdfymgfzcidiclkpny.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_hHJeEAG_xdsD_8ykmfKnUw__NBhScB0";

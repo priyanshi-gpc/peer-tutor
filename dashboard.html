@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PeerX — Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="grid"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo"><span>PX</span> PeerX</div>
+        <div class="nav-links"><a href="index.html">Home</a><a href="find-tutors.html">Find Tutors</a><a
+                href="dashboard.html">Dashboard</a><a href="requests.html">Requests</a><a
+                href="profile.html">Profile</a></div>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+    </nav>
+    <main class="page-shell">
+        <section class="page-hero"><span class="badge" id="roleBadge">DASHBOARD</span>
+            <h1>Welcome, <span id="dashboardName">Peer</span></h1>
+            <p id="dashboardRoleText">Your PeerX Dashboard</p>
+        </section>
+        <section class="stats-grid">
+            <div class="stat-card"><span>MY REQUESTS</span><strong id="totalRequests">0</strong></div>
+            <div class="stat-card"><span>PENDING</span><strong id="pendingRequests">0</strong></div>
+        </section>
+        <section id="studentActions" class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-icon">🔎</div>
+                <h3>Find a Tutor</h3>
+                <p>Discover peers by subject, skills, and experience.</p><a class="primary-btn"
+                    href="find-tutors.html">Browse Tutors</a>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">📨</div>
+                <h3>My Requests</h3>
+                <p>Track requests you have sent to tutors.</p><a class="secondary-btn" href="requests.html">View
+                    Requests</a>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">👤</div>
+                <h3>My Profile</h3>
+                <p>Keep your subjects, skills, bio, and class level updated.</p><a class="secondary-btn"
+                    href="profile.html">Edit Profile</a>
+            </div>
+        </section>
+        <section id="tutorActions" class="dashboard-grid" style="display:none">
+            <div class="dashboard-card">
+                <div class="card-icon">📥</div>
+                <h3>Incoming Requests</h3>
+                <p>See students who want your help and respond to their requests.</p><a class="primary-btn"
+                    href="requests.html">Manage Requests</a>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">🧑‍🏫</div>
+                <h3>Teaching Profile</h3>
+                <p>Show subjects and skills you can teach to other students.</p><a class="secondary-btn"
+                    href="profile.html">Edit Profile</a>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-icon">✨</div>
+                <h3>Discover Peers</h3>
+                <p>Browse the PeerX community and connect with learners.</p><a class="secondary-btn"
+                    href="find-tutors.html">Browse Tutors</a>
+            </div>
+        </section>
+        <section class="section-panel">
+            <div class="section-title"><span>PROFILE SNAPSHOT</span>
+                <h2>About You</h2>
+            </div>
+            <div id="profileSummary" class="profile-summary">Loading...</div>
+        </section>
+        <section class="section-panel">
+            <div class="section-title"><span>RECENT ACTIVITY</span>
+                <h2>Latest Requests</h2>
+            </div>
+            <div id="activity" class="request-list">Loading...</div>
+        </section>
+    </main>
+    <footer>
+        <div class="logo"><span>PX</span> PeerX</div>
+        <p>Learn together. Grow together.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="dashboard.js"></script>
+    <script src="logout.js"></script>
+</body>
+
+</html>

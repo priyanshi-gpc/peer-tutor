@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PeerX — Find Tutors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="grid"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo"><span>PX</span> PeerX</div>
+        <div class="nav-links"><a href="index.html">Home</a><a href="find-tutors.html">Find Tutors</a><a
+                href="dashboard.html">Dashboard</a><a href="requests.html">Requests</a><a
+                href="profile.html">Profile</a></div>
+        <div class="nav-buttons"><button class="signup-btn" onclick="location.href='index.html#auth'">Join
+                PeerX</button></div>
+    </nav>
+    <main class="page-shell">
+        <section class="page-hero"><span class="badge">PEER DISCOVERY</span>
+            <h1>Find Your <span>Tutor</span></h1>
+            <p>Search for peers who can help you learn the subjects and skills you care about.</p>
+        </section>
+        <section class="section-panel">
+            <div class="search-box"><input id="searchInput" type="text"
+                    placeholder="Search by name, subject or skill..."><button class="primary-btn"
+                    onclick="loadTutors(document.getElementById('searchInput').value)">Search</button></div>
+            <div id="tutorContainer" class="tutor-grid">
+                <div class="loading">Loading tutors...</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="logo"><span>PX</span> PeerX</div>
+        <p>Learn together. Grow together.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+    <script src="logout.js"></script>
+</body>
+
+</html>

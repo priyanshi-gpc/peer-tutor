@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PeerX — Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="grid"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo"><span>PX</span> PeerX</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="find-tutors.html">Find Tutors</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="requests.html">Requests</a>
+            <a href="profile.html">Profile</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page-shell">
+        <section class="page-hero">
+            <span class="badge" id="profileRoleBadge">YOUR PROFILE</span>
+            <h1 id="profilePageTitle">Build Your <span>PeerX</span> Profile</h1>
+            <p id="profilePageSubtitle">
+                Tell the community what you learn, what you teach, and how others can connect with you.
+            </p>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input id="profileName" type="text" placeholder="Your full name">
+                </div>
+
+                <div class="input-group">
+                    <label>Class / Level</label>
+                    <input id="classLevel" type="text" placeholder="e.g. Class 12, College 1st Year">
+                </div>
+
+                <div class="input-group">
+                    <label id="subjectsLabel">Subjects</label>
+                    <input id="subjects" type="text" placeholder="e.g. Maths, Physics, English">
+                </div>
+
+                <div class="input-group">
+                    <label id="skillsLabel">Skills</label>
+                    <input id="skills" type="text" placeholder="e.g. Python, Web Development">
+                </div>
+
+                <div class="input-group full">
+                    <label>Location</label>
+                    <input id="location" type="text" placeholder="City / Area">
+                </div>
+
+                <div class="input-group full">
+                    <label>Phone / Contact Number</label>
+                    <input id="phone" type="tel" placeholder="e.g. +91 98765 43210" autocomplete="tel">
+                    <small style="display:block;margin-top:6px;opacity:.7;">
+                        Your number is shared only with people after a tutor request is accepted.
+                    </small>
+                </div>
+
+                <div class="input-group full">
+                    <label id="bioLabel">Bio</label>
+                    <textarea id="bio" rows="6"
+                        placeholder="Tell other learners a little about yourself..."></textarea>
+                </div>
+            </div>
+
+            <button class="primary-btn" onclick="saveProfile()">Save Profile</button>
+            <p id="profileMessage"></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo"><span>PX</span> PeerX</div>
+        <p>Learn together. Grow together.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="profile.js"></script>
+    <script src="logout.js"></script>
+</body>
+
+</html>

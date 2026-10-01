@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PeerX — Requests</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="grid"></div>
+    </div>
+    <nav class="navbar">
+        <div class="logo"><span>PX</span> PeerX</div>
+        <div class="nav-links"><a href="index.html">Home</a><a href="find-tutors.html">Find Tutors</a><a
+                href="dashboard.html">Dashboard</a><a href="requests.html">Requests</a><a
+                href="profile.html">Profile</a></div>
+    </nav>
+    <main class="page-shell">
+        <section class="page-hero"><span class="badge">CONNECTIONS</span>
+            <h1>Tutor <span>Requests</span></h1>
+            <p>Students can track sent requests; tutors can accept or reject incoming requests.</p>
+        </section>
+        <section class="section-panel">
+            <div class="section-title"><span>REQUEST CENTER</span>
+                <h2 id="requestsTitle">My Requests</h2>
+            </div>
+            <div id="requestsContainer" class="request-list">
+                <div class="empty-state">
+                    <div class="empty-icon">✦</div>
+                    <h3>Loading requests...</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="logo"><span>PX</span> PeerX</div>
+        <p>Learn together. Grow together.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="requests.js"></script>
+    <script src="logout.js"></script>
+</body>
+
+</html>
